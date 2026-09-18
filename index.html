@@ -1,402 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-  <title>Alik Sarkar</title>
-  <meta name="author" content="Alik Sarkar">
-  <meta name="description" content="Alik Sarkar is a Research Fellow at VL2G, IIT Jodhpur, working on egocentric and long-form video understanding, procedural video, and video retrieval.">
- 
-  <link rel="shortcut icon" href="images/alik_icon.png" type="image/x-icon">
- 
-  <!-- Open Graph: controls the preview card when someone shares your page or pastes it in Slack/Twitter -->
-  <meta property="og:title" content="Alik Sarkar">
-  <meta property="og:description" content="Research Fellow at VL2G, IIT Jodhpur. Egocentric and long-form video understanding.">
-  <meta property="og:image" content="images/alik_dp.jpg">
-  <meta property="og:type" content="website">
- 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
- 
-  <style>
-    :root {
-      --text: #1a1a1a;
-      --muted: #555;
-      --link: #1772d0;
-      --link-hover: #f09228;
-      --rule: #e2e2e2;
-      --bg: #ffffff;
-      --max-width: 820px;
-    }
- 
-    * { box-sizing: border-box; }
- 
-    body {
-      margin: 0;
-      padding: 0 20px 60px;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: 300;
-      font-size: 17px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
- 
-    .wrap { max-width: var(--max-width); margin: 0 auto; }
- 
-    a { color: var(--link); text-decoration: none; }
-    a:hover { color: var(--link-hover); }
- 
-    /* ---------- header ---------- */
-    .header {
-      display: flex;
-      gap: 36px;
-      align-items: center;
-      padding: 48px 0 8px;
-    }
-    .header .bio { flex: 1 1 auto; min-width: 0; }
-    .header .photo { flex: 0 0 230px; }
-    .header .photo img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 6px;
-    }
- 
-    h1.name {
-      font-size: 34px;
-      font-weight: 300;
-      letter-spacing: 1px;
-      margin: 0 0 18px;
-      text-align: center;
-    }
- 
-    .bio p { margin: 0 0 12px; }
- 
-    .links {
-      text-align: center;
-      margin-top: 18px;
-      font-size: 16px;
-    }
-    .links a { margin: 0 6px; }
- 
-    /* ---------- sections ---------- */
-    h2 {
-      font-size: 22px;
-      font-weight: 400;
-      margin: 44px 0 14px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--rule);
-    }
- 
-    /* ---------- news ---------- */
-    ul.news {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      max-height: 200px;
-      overflow-y: auto;
-    }
-    ul.news li {
-      margin-bottom: 8px;
-      padding-left: 1.1em;
-      text-indent: -1.1em;
-    }
-    ul.news li::before { content: "\2022"; margin-right: 0.6em; color: var(--muted); }
-    ul.news .date { font-weight: 700; }
- 
-    /* ---------- publication / project entries ---------- */
-    .entry {
-      display: flex;
-      gap: 28px;
-      align-items: flex-start;
-      margin-bottom: 34px;
-    }
-    .entry .thumb { flex: 0 0 260px; }
-    .entry .thumb img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-    }
-    .entry .info { flex: 1 1 auto; min-width: 0; }
-    .entry h3 {
-      font-size: 19px;
-      font-weight: 700;
-      margin: 0 0 4px;
-      line-height: 1.35;
-    }
-    .entry .authors { margin: 0 0 2px; }
-    .entry .venue { margin: 0 0 8px; color: var(--muted); font-style: italic; }
-    .entry .venue .highlight { color: #b23c17; font-style: normal; font-weight: 700; }
-    .entry .resources { margin: 0 0 8px; font-size: 15px; }
-    .entry .resources a { margin-right: 10px; }
-    .entry .abstract { margin: 0; font-size: 16px; }
- 
-    /* ---------- footer ---------- */
-    footer {
-      margin-top: 56px;
-      padding-top: 16px;
-      border-top: 1px solid var(--rule);
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    footer a { color: var(--muted); text-decoration: underline; }
- 
-    /* ---------- mobile ---------- */
-    @media (max-width: 680px) {
-      body { font-size: 16px; }
-      .header { flex-direction: column-reverse; gap: 20px; padding-top: 32px; }
-      .header .photo { flex: 0 0 auto; width: 190px; align-self: center; }
-      .entry { flex-direction: column; gap: 14px; }
-      .entry .thumb { flex: 0 0 auto; width: 100%; }
-      ul.news { max-height: none; overflow-y: visible; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Alik Sarkar</title>
+<meta name="author" content="Alik Sarkar">
+<meta name="description" content="Alik Sarkar is a Research Fellow at VL2G, IIT Jodhpur, working on egocentric and long-form video understanding, procedural video, and video retrieval.">
+<meta name="robots" content="index,follow">
+
+<!-- TODO: set this to your real URL once deployed, e.g. https://aliksarkar.github.io/ -->
+<link rel="canonical" href="https://aliksarkar.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alik Sarkar">
+<meta property="og:title" content="Alik Sarkar | Egocentric Video Understanding">
+<meta property="og:description" content="Research Fellow at VL2G, IIT Jodhpur. Egocentric and long-form video understanding.">
+<meta property="og:url" content="https://aliksarkar.github.io/">
+<meta property="og:image" content="https://aliksarkar.github.io/images/alik_dp.jpg">
+<meta property="og:image:alt" content="Portrait photo of Alik Sarkar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alik Sarkar | Egocentric Video Understanding">
+<meta name="twitter:description" content="Research Fellow at VL2G, IIT Jodhpur. Egocentric and long-form video understanding.">
+<meta name="twitter:image" content="https://aliksarkar.github.io/images/alik_dp.jpg">
+
+<link rel="shortcut icon" href="images/alik_icon.png" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alik Sarkar",
+  "url": "https://aliksarkar.github.io/",
+  "image": "https://aliksarkar.github.io/images/alik_dp.jpg",
+  "jobTitle": "Research Fellow",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Jodhpur" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Heritage Institute of Technology, Kolkata" },
+  "sameAs": [
+    "https://scholar.google.com/citations?user=8F4sPXUAAAAJ&hl=en",
+    "https://github.com/ALIKSARKAR",
+    "https://www.linkedin.com/in/alik-sarkar-000810183/"
+  ]
+}
+</script>
+
+<style>
+:root{
+  --text:#1a1a1a; --muted:#5f5f5f; --link:#1772d0; --link-hover:#f09228;
+  --rule:#e4e4e4; --panel:#fafafa; --accent:#b23c17; --bg:#fff; --maxw:860px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; padding:0 20px 70px; background:var(--bg); color:var(--text);
+  font-family:'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight:300; font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw); margin:0 auto}
+a{color:var(--link); text-decoration:none}
+a:hover{color:var(--link-hover)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--link); outline-offset:3px; border-radius:3px}
+
+.skip-link{position:absolute; left:-9999px; top:0; background:#fff; padding:10px 14px; z-index:100}
+.skip-link:focus{left:10px; top:10px}
+
+/* ---------------- header ---------------- */
+.hero{display:flex; gap:38px; align-items:center; padding:52px 0 6px}
+.hero .bio{flex:1 1 auto; min-width:0}
+.hero .bio p{margin:0 0 13px}
+h1.name{font-size:36px; font-weight:300; letter-spacing:1.5px; margin:0 0 20px; text-align:center}
+
+/* portrait with hover video swap */
+.portrait{flex:0 0 240px}
+.portrait .frame{position:relative; width:100%; aspect-ratio:3/4; border-radius:10px; overflow:hidden; background:#111}
+.portrait img,.portrait video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
+  transition:opacity .28s ease, transform .28s ease;
+}
+.portrait video{opacity:0; transform:translateY(8px); pointer-events:none}
+.portrait.is-hovered img{opacity:0; transform:translateY(-8px)}
+.portrait.is-hovered video{opacity:1; transform:translateY(0)}
+.portrait .badge{
+  position:absolute; left:10px; bottom:10px; display:inline-flex; align-items:center; gap:7px;
+  padding:6px 10px; border-radius:999px; background:rgba(0,0,0,.6); color:#fff;
+  font-size:12px; line-height:1; pointer-events:none; backdrop-filter:blur(3px);
+}
+
+/* ---------------- links row + email ---------------- */
+.linkrow{text-align:center; margin-top:20px; font-size:16px}
+.linkrow a,.linkrow button{margin:0 7px; white-space:nowrap}
+.link-button{background:none; border:0; padding:0; font:inherit; color:var(--link); cursor:pointer}
+.link-button:hover{color:var(--link-hover)}
+.email-panel{
+  margin:12px auto 0; max-width:440px; text-align:center; font-size:15px;
+  background:var(--panel); border:1px solid var(--rule); border-radius:8px; padding:10px 12px;
+}
+.email-btn{
+  font:inherit; font-size:14px; cursor:pointer; margin-left:8px; padding:3px 10px;
+  border:1px solid var(--rule); border-radius:6px; background:#fff; color:var(--text);
+}
+.email-btn:disabled{opacity:.45; cursor:default}
+.email-status{margin-left:8px; font-size:13px; color:var(--muted)}
+
+.seeking{
+  margin-top:16px; padding:11px 14px; border-left:3px solid var(--accent);
+  background:var(--panel); border-radius:0 8px 8px 0; font-size:16px;
+}
+
+/* ---------------- sections ---------------- */
+h2{font-size:23px; font-weight:400; margin:48px 0 16px; padding-bottom:7px; border-bottom:1px solid var(--rule)}
+
+/* ---------------- news ---------------- */
+.news{
+  border:1px solid var(--rule); border-radius:10px; padding:16px 18px;
+  background:var(--panel); box-shadow:0 3px 8px rgba(0,0,0,.05);
+  max-height:190px; overflow-y:auto; margin-top:26px;
+}
+.news h3{margin:0 0 8px; font-size:17px; font-weight:700}
+.news p{margin:4px 0; font-size:15px}
+.news .date{font-weight:700}
+
+/* ---------------- entries ---------------- */
+.entry{display:flex; gap:26px; align-items:flex-start; margin-bottom:34px}
+.entry .thumb{flex:0 0 250px}
+.media{position:relative; width:100%; aspect-ratio:4/3; border-radius:8px; overflow:hidden; background:#f2f2f2; border:1px solid var(--rule)}
+.media img,.media video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:opacity .3s ease}
+.media video{opacity:0}
+.media.is-hovered video{opacity:1}
+.media.is-hovered img{opacity:0}
+.media .playhint{
+  position:absolute; right:8px; bottom:8px; padding:4px 8px; border-radius:999px;
+  background:rgba(0,0,0,.6); color:#fff; font-size:11px; line-height:1; pointer-events:none;
+}
+.entry .info{flex:1 1 auto; min-width:0}
+.entry h3{font-size:19px; font-weight:700; margin:0 0 5px; line-height:1.35}
+.entry .authors{margin:0 0 3px; font-size:16px}
+.entry .authors .me{text-decoration:underline; font-weight:700}
+.entry .venue{margin:0 0 8px; color:var(--muted); font-style:italic; font-size:16px}
+.entry .venue .flag{color:var(--accent); font-style:normal; font-weight:700}
+.entry .rsrc{margin:0 0 8px; font-size:15px}
+.entry .rsrc a{margin-right:12px}
+.entry .blurb{margin:0; font-size:16px}
+.eq{font-size:14px; color:var(--muted)}
+
+/* ---------------- affiliations ---------------- */
+.aff{display:flex; gap:22px; align-items:center; margin-bottom:20px}
+.aff .logo{flex:0 0 96px; text-align:center}
+.aff .logo img{max-width:100%; max-height:66px; width:auto; height:auto}
+.aff .what{flex:1 1 auto; min-width:0; font-size:16px}
+.aff .what .role{color:var(--muted); font-size:15px}
+
+footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--rule); text-align:center; font-size:13px; color:var(--muted)}
+footer a{color:var(--muted); text-decoration:underline}
+
+/* ---------------- scroll reveal ---------------- */
+.reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
+.reveal.shown{opacity:1; transform:none}
+
+/* ---------------- mobile ---------------- */
+@media (max-width:700px){
+  body{font-size:16px}
+  .hero{flex-direction:column-reverse; gap:22px; padding-top:34px}
+  .portrait{flex:0 0 auto; width:200px; align-self:center}
+  .entry{flex-direction:column; gap:14px}
+  .entry .thumb{flex:0 0 auto; width:100%}
+  .media{aspect-ratio:16/9}
+  .news{max-height:none; overflow-y:visible}
+  .aff{gap:16px}
+  .aff .logo{flex:0 0 68px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1; transform:none; transition:none}
+  .portrait img,.portrait video,.media img,.media video{transition:none}
+}
+</style>
 </head>
- 
+
 <body>
-<div class="wrap">
- 
-  <!-- ==================== HEADER ==================== -->
-  <div class="header">
-    <div class="bio">
-      <h1 class="name">Alik Sarkar</h1>
- 
-      <p>
-        I am a Research Fellow at the
-        <a href="https://vl2g.github.io/" target="_blank" rel="noopener">Vision, Language and Learning Group (VL2G)</a>,
-        <a href="https://iitj.ac.in/" target="_blank" rel="noopener">IIT Jodhpur</a>,
-        advised by
-        <a href="https://scholar.google.co.in/citations?user=vhUg2zIAAAAJ&amp;hl=en" target="_blank" rel="noopener">Prof. Anand Mishra</a>
-        and
-        <a href="https://scholar.google.com/citations?user=eX9PSu0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Manish Gupta</a>
-        (Microsoft, Bing). I work on egocentric procedural video, with an emphasis on
-        memory and temporal grounding in hour-scale recordings.
-      </p>
- 
-      <p>
-        Before this I was a Research Fellow at
-        <a href="https://cvit.iiit.ac.in/" target="_blank" rel="noopener">CVIT</a>,
-        <a href="https://www.iiit.ac.in/" target="_blank" rel="noopener">IIIT Hyderabad</a>,
-        advised by
-        <a href="https://scholar.google.com/citations?hl=en&amp;user=U9dH-DoAAAAJ" target="_blank" rel="noopener">Prof. C. V. Jawahar</a>,
-        where I worked on OCR for extremely low-resource Indian languages and
-        end-to-end document understanding.
-      </p>
- 
-      <!-- ############################################################
-           PICK ONE of the two BCCL paragraphs below and DELETE the other.
-           Your current site says fMRI brain encoding/decoding; your CV says
-           antimicrobial-resistance prediction on ILBS clinical data. These
-           must match. If you did both, merge them into one sentence.
-           ############################################################ -->
- 
-      <!-- OPTION A — fMRI version (matches your current website) -->
-      <p>
-        I also spent a short period at
-        <a href="https://bccl.iiit.ac.in/" target="_blank" rel="noopener">BCCL</a>,
-        IIIT Hyderabad, working on fMRI-based brain encoding and decoding with
-        <a href="https://scholar.google.co.in/citations?hl=en&amp;user=bbSYyiAAAAAJ" target="_blank" rel="noopener">Prof. Bapi Raju S.</a>
-        and
-        <a href="https://scholar.google.co.in/citations?user=4Uz0LngAAAAJ&amp;hl=en" target="_blank" rel="noopener">Subba Reddy Oota</a>.
-      </p>
- 
-      <!-- OPTION B — clinical ML version (matches your CV). Uncomment to use.
-      <p>
-        I also spent a short period at
-        <a href="https://bccl.iiit.ac.in/" target="_blank" rel="noopener">BCCL</a>,
-        IIIT Hyderabad, working on early antimicrobial-resistance prediction from
-        clinical cohort data with
-        <a href="https://scholar.google.co.in/citations?hl=en&amp;user=bbSYyiAAAAAJ" target="_blank" rel="noopener">Prof. Bapi Raju S.</a>
-      </p>
-      -->
- 
-      <p>
-        I received my Master of Computer Application from the
-        <a href="https://www.heritageit.edu/" target="_blank" rel="noopener">Heritage Institute of Technology</a>, Kolkata, in 2022.
-      </p>
- 
-      <p>
-        <strong>I am applying for PhD positions starting Fall 2027</strong> in computer vision,
-        with a focus on egocentric and long-form video understanding. Please get in touch.
-      </p>
- 
-      <div class="links">
-        <a href="mailto:sarkaralikphy@gmail.com">Email</a> /
-        <a href="cv/Alik_Sarkar_CV.pdf" target="_blank" rel="noopener">CV</a> /
-        <a href="https://scholar.google.com/citations?user=8F4sPXUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> /
-        <a href="https://github.com/ALIKSARKAR" target="_blank" rel="noopener">GitHub</a> /
-        <a href="https://www.linkedin.com/in/alik-sarkar-000810183/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+<a class="skip-link" href="#main">Skip to main content</a>
+<main id="main" class="wrap">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="bio">
+    <h1 class="name">Alik Sarkar</h1>
+
+    <p>
+      I am a Research Fellow at the
+      <a href="https://vl2g.github.io/" target="_blank" rel="noopener">Vision, Language and Learning Group (VL2G)</a>,
+      <a href="https://iitj.ac.in/" target="_blank" rel="noopener">IIT Jodhpur</a>, advised by
+      <a href="https://scholar.google.co.in/citations?user=vhUg2zIAAAAJ&amp;hl=en" target="_blank" rel="noopener">Prof. Anand Mishra</a>
+      and <a href="https://scholar.google.com/citations?user=eX9PSu0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Manish Gupta</a>
+      (Microsoft, Bing). I work on <strong>egocentric procedural video</strong>, with an emphasis on memory
+      and temporal grounding in hour-scale recordings.
+    </p>
+
+    <p>
+      Previously I was a Research Fellow at
+      <a href="https://cvit.iiit.ac.in/" target="_blank" rel="noopener">CVIT</a>,
+      <a href="https://www.iiit.ac.in/" target="_blank" rel="noopener">IIIT Hyderabad</a>, with
+      <a href="https://faculty.iiit.ac.in/~jawahar/" target="_blank" rel="noopener">Prof. C. V. Jawahar</a>,
+      working on OCR for extremely low-resource Indian languages and end-to-end document understanding.
+    </p>
+
+    <!-- ###################################################################
+         PICK ONE of the two paragraphs below, DELETE the other.
+         Your old site said fMRI brain encoding/decoding; your CV says
+         antimicrobial-resistance prediction. These must agree.
+         ################################################################### -->
+
+    <!-- OPTION A - fMRI (matches your old website) -->
+    <p>
+      I also spent a short period at
+      <a href="https://bccl.iiit.ac.in/" target="_blank" rel="noopener">BCCL</a>, IIIT Hyderabad,
+      working on fMRI-based brain encoding and decoding with
+      <a href="https://scholar.google.co.in/citations?hl=en&amp;user=bbSYyiAAAAAJ" target="_blank" rel="noopener">Prof. Bapi Raju S.</a>
+      and <a href="https://scholar.google.co.in/citations?user=4Uz0LngAAAAJ&amp;hl=en" target="_blank" rel="noopener">Subba Reddy Oota</a>.
+    </p>
+
+    <!-- OPTION B - clinical ML (matches your CV). Uncomment to use.
+    <p>
+      I also spent a short period at
+      <a href="https://bccl.iiit.ac.in/" target="_blank" rel="noopener">BCCL</a>, IIIT Hyderabad,
+      working on early antimicrobial-resistance prediction from clinical cohort data with
+      <a href="https://scholar.google.co.in/citations?hl=en&amp;user=bbSYyiAAAAAJ" target="_blank" rel="noopener">Prof. Bapi Raju S.</a>
+    </p>
+    -->
+
+    <p>
+      I received my MCA from the
+      <a href="https://www.heritageit.edu/" target="_blank" rel="noopener">Heritage Institute of Technology</a>, Kolkata, in 2022.
+    </p>
+
+    <div class="seeking">
+      <strong>I am applying for PhD positions starting Fall 2027</strong> in computer vision, focused on
+      egocentric and long-form video understanding. I would be glad to hear from groups working in this area.
     </div>
- 
-    <div class="photo">
-      <img src="images/alik_dp.jpg" alt="Photograph of Alik Sarkar">
+
+    <p class="linkrow">
+      <button type="button" id="show-email" class="link-button" aria-controls="email-panel" aria-expanded="false">
+        <i class="fas fa-envelope" aria-hidden="true"></i> Email
+      </button>
+      <a href="cv/Alik_Sarkar_CV.pdf" target="_blank" rel="noopener"><i class="fas fa-file-lines" aria-hidden="true"></i> CV</a>
+      <a href="https://scholar.google.com/citations?user=8F4sPXUAAAAJ&amp;hl=en" target="_blank" rel="noopener"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Scholar</a>
+      <a href="https://github.com/ALIKSARKAR" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/alik-sarkar-000810183/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+    </p>
+
+    <div id="email-panel" class="email-panel" hidden>
+      <span id="email-slot">Hidden from scrapers</span>
+      <button type="button" id="reveal-email" class="email-btn">Reveal</button>
+      <button type="button" id="copy-email" class="email-btn" disabled>Copy</button>
+      <span id="email-status" class="email-status" aria-live="polite"></span>
     </div>
   </div>
- 
-  <!-- ==================== NEWS ==================== -->
-  <!-- Keep the newest 5-6. An empty or stale news list is worse than none:
-       if you can't keep it current, delete this whole section. -->
-  <h2>News</h2>
-  <ul class="news">
-    <li><span class="date">Sep 2025</span> — Joined VL2G, IIT Jodhpur as a Research Fellow.</li>
-    <li><span class="date">Jul 2025</span> — Student volunteer at the CVIT Summer School in AI, IIIT Hyderabad.</li>
-    <li><span class="date">Dec 2024</span> — Presented our work on printed OCR for extremely low-resource Indic languages as an <strong>oral</strong> at CVIP 2024.</li>
-    <!-- Add the FLIVR submission and any dataset release here as they happen. -->
-  </ul>
- 
-  <!-- ==================== RESEARCH INTERESTS ==================== -->
-  <h2>Research Interests</h2>
-  <p>
-    I work on understanding long, untrimmed video of people doing things. Concretely:
-    egocentric video understanding, memory and temporal grounding over hour-scale
-    recordings, procedural understanding and mistake detection, video-to-video retrieval,
-    and learning from human demonstration. I am interested in the data and training
-    infrastructure this needs as much as in developing the models.
-  </p>
- 
-  <!-- ==================== RESEARCH ==================== -->
-  <h2>Research</h2>
- 
-  <!-- ############################################################
-       FLIVR: check with Prof. Mishra before publishing this entry.
-       AAAI restricts publicising submissions during review, and the rules
-       change year to year. Two versions below — use ONE.
-       ############################################################ -->
- 
-  <!-- VERSION 1 — full entry, use ONLY if you are cleared to name it. -->
-  <!-- <div class="entry">
-    <div class="thumb">
-      <img src="images/flivr_teaser.png" alt="Query video matched against gallery videos by token-level spatio-temporal similarity">
-    </div>
-    <div class="info">
-      <h3>FLIVR: Motion-Aware Video-to-Video Retrieval with Multi-Vector Representations</h3>
-      <p class="authors">
-        Uday Agarwal*, <strong>Alik Sarkar*</strong>, Yogesh Kumar, Manish Gupta, Anand Mishra
-        <br><span style="font-size:14px;color:var(--muted)">* equal contribution</span>
-      </p>
-      <p class="venue">Under review, 2026 &nbsp;·&nbsp; with Microsoft Research India</p>
-      <p class="abstract">
-        A two-stage retrieval system that treats video itself as the query. Global embeddings
-        shortlist candidates, then a transformer-based late-interaction stage (MeanMaxSim)
-        scores token-level spatio-temporal matches, fused with global similarity via reciprocal
-        rank fusion. 83.0% R@1 on VR-ActivityNet and 53.0% R@1 on SportsMoment, the latter
-        +15.4 over the next-best model. Exhaustive late interaction over ~48M pairwise
-        comparisons runs on a single 48&nbsp;GB GPU through frame-feature caching and chunked
-        scoring.
-      </p>
-    </div>
-  </div> -->
- 
-  <!-- VERSION 2 — anonymous fallback. Delete VERSION 1 and uncomment this instead. -->
-  <div class="entry">
-    <div class="info">
-      <h3>Motion-aware video-to-video retrieval</h3>
-      <p class="venue">Manuscript under review at a top-tier AI conference, 2026 &nbsp;·&nbsp; with Microsoft Research India</p>
-      <p class="abstract">
-        Co-first-authored work on treating video as the retrieval query rather than text,
-        using token-level spatio-temporal late interaction over multi-vector representations.
-        Details available on request.
-      </p>
+
+  <!-- Portrait. Swaps to a short video on hover if images/profile_clip.mp4 exists.
+       No video? Delete the <video> element and the .badge div - the image alone still works. -->
+  <div class="portrait" id="portrait" role="img" aria-label="Alik Sarkar">
+    <div class="frame">
+      <img src="images/alik_dp.jpg" alt="Portrait photo of Alik Sarkar" width="960" height="1280" fetchpriority="high" decoding="async">
+      <video muted playsinline loop preload="none" aria-hidden="true">
+        <source src="images/profile_clip.mp4" type="video/mp4">
+      </video>
+      <div class="badge"><i class="fa-solid fa-video" aria-hidden="true"></i><span>Research</span></div>
     </div>
   </div>
- 
- 
-  <div class="entry">
-    <div class="thumb">
-      <img src="images/egocentric_teaser.png" alt="Frames from egocentric recordings of tabletop manipulation tasks">
-    </div>
-    <div class="info">
-      <h3>An egocentric dataset for procedural understanding and deviation detection</h3>
-      <p class="authors"><strong>Alik Sarkar</strong>, and collaborators at VL2G</p>
-      <p class="venue">Ongoing &nbsp;·&nbsp; supported by the Anusandhan National Research Foundation (ANRF)</p>
-      <p class="abstract">
-        ~120 hours of untrimmed egocentric footage: 10 participants performing 23 tabletop
-        manipulation tasks, each paired with a text and video standard operating procedure.
-        I designed the capture protocol and built the ingestion, annotation and
-        temporal-alignment pipeline end to end. On top of it, I work on SOP-conditioned
-        deviation detection — grounding a recording against its reference procedure to
-        localise and classify where an operator departs from it.
-      </p>
-      <!-- A short looping GIF of a few tasks would do more here than any still image. -->
-    </div>
-  </div>
- 
-  <div class="entry">
-    <div class="thumb">
-      <!-- Was <img src="/images/Crop_Page.pdf"> — browsers cannot render a PDF in an <img> tag.
-           Convert it first:
-             pdftoppm -r 150 -png -f 1 -l 1 -singlefile Crop_Page.pdf images/ocr_teaser
-           then resize to ~800px wide so the page stays light. -->
-      <img src="images/ocr_teaser.png" alt="Printed documents in low-resource Indic scripts with recognised text overlaid">
-    </div>
-    <div class="info">
-      <h3>Printed OCR for Extremely Low-resource Indic Languages</h3>
-      <p class="authors"><strong>Alik Sarkar</strong>, Ajoy Mondal, Gurpreet Singh Lehal, C. V. Jawahar</p>
-      <p class="venue">CVIP 2024 &nbsp;·&nbsp; <span class="highlight">Oral Presentation</span></p>
-      <p class="resources">
-        <a href="https://cdn.iiit.ac.in/cdn/ilocr.iiit.ac.in/dataset/static/assets/img/publication/printed/printed_ocr.pdf" target="_blank" rel="noopener">paper</a>
-        <a href="https://github.com/NLTM-OCR" target="_blank" rel="noopener">code</a>
-        <!-- Add the Springer proceedings DOI here once you have it. -->
-      </p>
-      <p class="abstract">
-        The first large-scale printed-text dataset for five of the nine extremely low-resource
-        official Indian languages, with real and synthetic splits totalling over 1M word images
-        across all nine. We establish CRNN baselines for every language, exceeding 90% word and
-        character recognition rates on most through synthetic pretraining and real-data finetuning.
-      </p>
-    </div>
-  </div>
- 
-  <footer>
-    Design and source code adapted from <a href="https://jonbarron.info" target="_blank" rel="noopener">Jon Barron's website</a>.
-  </footer>
- 
+</section>
+
+<!-- ============================ NEWS ============================ -->
+<!-- Keep the newest 5-6. A stale news box is worse than no news box. -->
+<div class="news reveal">
+  <h3>News</h3>
+  <p><span class="date">Sep 2025</span> &mdash; Joined VL2G, IIT Jodhpur as a Research Fellow, working on egocentric procedural video.</p>
+  <p><span class="date">Jul 2025</span> &mdash; Student volunteer at the CVIT Summer School in AI, IIIT Hyderabad.</p>
+  <p><span class="date">Dec 2024</span> &mdash; Presented our work on printed OCR for extremely low-resource Indic languages as an <strong>oral</strong> at CVIP 2024.</p>
+  <!-- Add the FLIVR submission and any dataset release here as they land. -->
 </div>
+
+<!-- ======================= RESEARCH INTERESTS ======================= -->
+<h2 class="reveal">Research Interests</h2>
+<p class="reveal">
+  I work on understanding long, untrimmed video of people doing things. Concretely:
+  <strong>egocentric video understanding</strong>, memory and temporal grounding over hour-scale
+  recordings, <strong>procedural understanding and mistake detection</strong>, video-to-video retrieval,
+  and learning from human demonstration. I care about the data and training infrastructure this
+  needs as much as about the models.
+</p>
+
+<!-- ============================ RESEARCH ============================ -->
+<h2 class="reveal">Research</h2>
+
+<!-- ###################################################################
+     FLIVR: confirm with Prof. Mishra before publishing this named entry.
+     AAAI restricts publicising submissions during review and the policy
+     changes year to year. An anonymous fallback follows, commented out.
+     ################################################################### -->
+<article class="entry reveal">
+  <div class="thumb">
+    <div class="media"><img src="images/flivr_teaser.png" alt="A query video matched against gallery videos by token-level spatio-temporal similarity" loading="lazy" decoding="async"></div>
+  </div>
+  <div class="info">
+    <h3>FLIVR: Motion-Aware Video-to-Video Retrieval with Multi-Vector Representations</h3>
+    <p class="authors">
+      Uday Agarwal*, <span class="me">Alik Sarkar</span>*, Yogesh Kumar, Manish Gupta, Anand Mishra
+      <br><span class="eq">* equal contribution</span>
+    </p>
+    <p class="venue">Under review, 2026 &nbsp;&middot;&nbsp; with Microsoft Research India</p>
+    <p class="blurb">
+      A two-stage system that treats video itself as the query. Global embeddings shortlist candidates,
+      then a transformer-based late-interaction stage (MeanMaxSim) scores token-level spatio-temporal
+      matches, fused with global similarity via reciprocal rank fusion. 83.0% R@1 on VR-ActivityNet and
+      53.0% R@1 on SportsMoment, the latter +15.4 over the next-best model. Exhaustive late interaction
+      over ~48M pairwise comparisons runs on a single 48&nbsp;GB GPU through frame-feature caching and
+      chunked scoring.
+    </p>
+  </div>
+</article>
+
+<!-- ANONYMOUS FALLBACK - delete the block above and uncomment this if not cleared.
+<article class="entry reveal">
+  <div class="info">
+    <h3>Motion-aware video-to-video retrieval</h3>
+    <p class="venue">Manuscript under review at a top-tier AI conference, 2026 &nbsp;&middot;&nbsp; with Microsoft Research India</p>
+    <p class="blurb">Co-first-authored work on treating video as the retrieval query rather than text, using
+    token-level spatio-temporal late interaction over multi-vector representations. Details on request.</p>
+  </div>
+</article>
+-->
+
+<!-- Egocentric dataset. The hover video is the single highest-value asset on this page:
+     a 5-8 second silent loop of a few tasks, H.264 MP4, under 3 MB. -->
+<article class="entry reveal">
+  <div class="thumb">
+    <div class="media" id="ego-media" tabindex="0" role="button" aria-label="Play a preview of the egocentric recordings">
+      <img src="images/ego_teaser.png" alt="Frames from egocentric recordings of tabletop manipulation tasks" loading="lazy" decoding="async">
+      <video muted loop playsinline preload="none" aria-hidden="true">
+        <source src="images/ego_preview.mp4" type="video/mp4">
+      </video>
+      <span class="playhint"><i class="fa-solid fa-play" aria-hidden="true"></i> hover</span>
+    </div>
+  </div>
+  <div class="info">
+    <h3>An egocentric dataset for procedural understanding and deviation detection</h3>
+    <p class="authors"><span class="me">Alik Sarkar</span>, and collaborators at VL2G</p>
+    <p class="venue">Ongoing &nbsp;&middot;&nbsp; supported by the Anusandhan National Research Foundation (ANRF)</p>
+    <p class="blurb">
+      ~120 hours of untrimmed egocentric footage: 10 participants performing 23 tabletop manipulation
+      tasks, each paired with a text and video standard operating procedure. I designed the capture
+      protocol and built the ingestion, annotation and temporal-alignment pipeline end to end. On top of
+      it I work on SOP-conditioned deviation detection &mdash; grounding a recording against its reference
+      procedure to localise and classify where an operator departs from it.
+    </p>
+  </div>
+</article>
+
+<article class="entry reveal">
+  <div class="thumb">
+    <div class="media" style="aspect-ratio:16/11">
+      <img src="images/ocr_teaser.png" alt="India map of nine low-resource languages, printed document samples across scripts, and the CRNN recognition pipeline" loading="lazy" decoding="async">
+    </div>
+  </div>
+  <div class="info">
+    <h3>Printed OCR for Extremely Low-resource Indic Languages</h3>
+    <p class="authors"><span class="me">Alik Sarkar</span>, Ajoy Mondal, Gurpreet Singh Lehal, C. V. Jawahar</p>
+    <p class="venue">CVIP 2024 &nbsp;&middot;&nbsp; <span class="flag">Oral Presentation</span></p>
+    <p class="rsrc">
+      <a href="https://cdn.iiit.ac.in/cdn/ilocr.iiit.ac.in/dataset/static/assets/img/publication/printed/printed_ocr.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf" aria-hidden="true"></i> Paper</a>
+      <a href="https://github.com/NLTM-OCR" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+      <!-- Add the Springer proceedings DOI here once you have it. -->
+    </p>
+    <p class="blurb">
+      The first large-scale printed-text dataset for five of the nine extremely low-resource official
+      Indian languages, with real and synthetic splits totalling over 1M word images across all nine.
+      We establish CRNN baselines for every language, exceeding 90% word and character recognition rates
+      on most through synthetic pretraining and real-data finetuning.
+    </p>
+  </div>
+</article>
+
+<!-- ============================ PROJECTS ============================ -->
+<h2 class="reveal">Projects</h2>
+
+<article class="entry reveal">
+  <div class="thumb">
+    <div class="media"><img src="images/doc_vlm_teaser.png" alt="Document images in multiple Indian scripts with recognised text" loading="lazy" decoding="async"></div>
+  </div>
+  <div class="info">
+    <h3>A multilingual document VLM for 22 Indian languages</h3>
+    <p class="blurb">
+      A ViT-encoder / LLM-decoder model (GOT-OCR2.0 style) for document understanding across 22 Indian
+      languages and three modalities &mdash; printed, handwritten and scene text &mdash; replacing a stack of
+      modular ad-hoc systems with one holistic model. I built the synthetic rendering pipeline covering
+      fonts and degradations, and the multi-GPU training setup, at over 1M samples.
+    </p>
+    <p class="rsrc"><a href="https://github.com/NLTM-OCR" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a></p>
+  </div>
+</article>
+
+<!-- ============================ EXPERIENCE ============================ -->
+<h2 class="reveal">Research Experience</h2>
+
+<div class="aff reveal">
+  <div class="logo"><img src="images/logo_iitj.jpg" alt="IIT Jodhpur logo" loading="lazy"></div>
+  <div class="what">
+    <a href="https://vl2g.github.io/" target="_blank" rel="noopener">Vision, Language &amp; Learning Group (VL2G)</a>, IIT Jodhpur
+    <div class="role">Research Fellow &middot; Sep 2025 &ndash; present &middot; with Prof. Anand Mishra and Dr. Manish Gupta</div>
+  </div>
+</div>
+
+<div class="aff reveal">
+  <div class="logo"><img src="images/logo_iiith.jpg" alt="IIIT Hyderabad logo" loading="lazy"></div>
+  <div class="what">
+    <a href="https://cvit.iiit.ac.in/" target="_blank" rel="noopener">Centre for Visual Information Technology (CVIT)</a>, IIIT Hyderabad
+    <div class="role">Research Fellow &middot; Jul 2023 &ndash; Feb 2025 &middot; with Prof. C. V. Jawahar</div>
+  </div>
+</div>
+
+<div class="aff reveal">
+  <div class="logo"><img src="images/logo_iiith.jpg" alt="IIIT Hyderabad logo" loading="lazy"></div>
+  <div class="what">
+    <a href="https://bccl.iiit.ac.in/" target="_blank" rel="noopener">Brain, Cognition &amp; Computation Lab (BCCL)</a>, IIIT Hyderabad
+    <div class="role">Research Fellow &middot; Feb 2025 &ndash; Aug 2025 &middot; with Prof. Bapi Raju S.</div>
+  </div>
+</div>
+
+<!-- ============================ SERVICE ============================ -->
+<h2 class="reveal">Service &amp; Outreach</h2>
+<div class="reveal">
+  <p style="margin:0 0 10px">
+    <strong>CVIT Summer School in AI</strong>, IIIT Hyderabad &mdash; student volunteer on the organising team
+    (2024, 2025); attendee (2023).
+  </p>
+  <p style="margin:0">
+    <strong>Srijani</strong>, Ghatal &mdash; co-founder of a community organisation started during COVID to
+    distribute awareness material and safety supplies. It now runs academic and career guidance for
+    local high-school students.
+  </p>
+</div>
+
+<footer>
+  Layout adapted from <a href="https://jonbarron.info" target="_blank" rel="noopener">Jon Barron's website</a>.
+</footer>
+
+</main>
+
+<script>
+/* ---------------- email reveal (keeps the address out of the raw HTML) ---------------- */
+(function () {
+  var enc = "c2Fya2FyYWxpa3BoeUBnbWFpbC5jb20="; // base64 of sarkaralikphy@gmail.com
+  var addr = atob(enc);
+  var panel = document.getElementById("email-panel");
+  var toggle = document.getElementById("show-email");
+  var reveal = document.getElementById("reveal-email");
+  var copy = document.getElementById("copy-email");
+  var slot = document.getElementById("email-slot");
+  var status = document.getElementById("email-status");
+  if (!panel || !toggle) return;
+
+  var OPEN = '<i class="fas fa-envelope" aria-hidden="true"></i> Email';
+  var SHUT = '<i class="fas fa-envelope-open-text" aria-hidden="true"></i> Hide';
+  var revealed = false, timer = null;
+
+  function say(m) {
+    status.textContent = m;
+    clearTimeout(timer);
+    timer = setTimeout(function () { status.textContent = ""; }, 2000);
+  }
+
+  toggle.addEventListener("click", function () {
+    var opening = panel.hidden;
+    panel.hidden = !opening;
+    toggle.setAttribute("aria-expanded", String(opening));
+    toggle.innerHTML = opening ? SHUT : OPEN;
+    if (opening && !revealed) reveal.focus();
+  });
+
+  reveal.addEventListener("click", function () {
+    if (revealed) return;
+    var a = document.createElement("a");
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+    slot.textContent = "";
+    slot.appendChild(a);
+    revealed = true;
+    reveal.disabled = true;
+    copy.disabled = false;
+    say("Revealed");
+  });
+
+  copy.addEventListener("click", function () {
+    if (!revealed) return;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(addr).then(function () { say("Copied"); },
+                                               function () { say("Copy failed"); });
+    } else {
+      say("Copy unsupported");
+    }
+  });
+})();
+
+/* ---------------- hover / focus / tap video swap ---------------- */
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function bind(el) {
+    if (!el) return;
+    var vid = el.querySelector("video");
+    if (!vid) return;
+
+    function on() {
+      if (reduced) return;
+      el.classList.add("is-hovered");
+      var p = vid.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+    function off() {
+      el.classList.remove("is-hovered");
+      vid.pause();
+      try { vid.currentTime = 0; } catch (e) {}
+    }
+
+    el.addEventListener("mouseenter", on);
+    el.addEventListener("mouseleave", off);
+    el.addEventListener("focus", on);
+    el.addEventListener("blur", off);
+    el.addEventListener("click", function () {
+      if (el.classList.contains("is-hovered")) { off(); } else { on(); }
+    });
+  }
+
+  bind(document.getElementById("portrait"));
+  var medias = document.querySelectorAll(".media");
+  for (var i = 0; i < medias.length; i++) bind(medias[i]);
+})();
+
+/* ---------------- scroll reveal ---------------- */
+(function () {
+  var items = document.querySelectorAll(".reveal");
+  if (!items.length) return;
+
+  function showAll() {
+    for (var i = 0; i < items.length; i++) items[i].classList.add("shown");
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+    showAll();
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("shown"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].getBoundingClientRect().top < window.innerHeight * 0.95) {
+      items[i].classList.add("shown");
+    } else {
+      io.observe(items[i]);
+    }
+  }
+})();
+</script>
 </body>
 </html>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
